@@ -5,9 +5,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ main ]
+    branches: [ $default-branch ]
   pull_request:
-    branches: [ main ]
+    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -22,8 +22,6 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: gradle
-    - name: Gradle Build Action
-      uses: gradle/gradle-build-action@v2.0.1
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
